@@ -127,9 +127,75 @@
                 </div>
             </div>
         </div>
-        <div class="botao"><button>Selecione os 3 itens para fechar o pedido</button></div>
+    </div>
+    <div class="botao" onclick="montaCard()"><button class="selecionados">Selecione os 3 itens para fechar o pedido</button>
+    </div>
+    <div class="dados">
+       <div class="card">
+        <h3>Confirme seu pedido</h3>
+        <div class="linha">
+            <p class="comida">xburg</p>
+            <p class="precocomida">R$ 11,50</p>
+        </div>
+        <div class="linha">
+            <p class="liquido">coca</p>
+            <p class="precobebida">R$ 9,90</p>
+        </div>
+        <div class="linha">
+            <p class="doce">frango</p>
+            <p class="precodoce">R$ 4,50</p>
+        </div>
+        <h3 class="total">
+            TOTAL
+            <p>R$ 70</p>
+        </h3>
+        <div class="botoes">
+            <button class="confirma" onclick="enviarMensagem()">Tudo certo, pode pedir!</button>
+            <button class="cancela" onclick="retorna()">cancelar</button>
+        </div>
+        
+       </div> 
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>  
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+    <script src="script.js"></script> 
+    <!-- <script>    
+        function adicionaSelecao(seletor) {
+            const elementos = document.querySelectorAll(seletor);
+            const botaoPedido = document.querySelector('button');
+
+            elementos.forEach(elemento => {
+                elemento.addEventListener('click', function() {
+                    // Remova a classe 'selecionado' de todos os elementos dentro do grupo
+                    elementos.forEach(el => {
+                        el.classList.remove('selecionado');
+                        el.querySelector('ion-icon').style.display = 'none';
+                    });
+
+                    // Adicione a classe 'selecionado' ao elemento clicado
+                    elemento.classList.add('selecionado');
+                    elemento.querySelector('ion-icon').style.display = 'block';
+                    const primeiroSelecionado = document.querySelector('.primeiro .pratos .prato.selecionado');
+                    const bebidaSelecionada = document.querySelector('.bebida .pratos .prato.selecionado');
+                    const sobremesaSelecionada = document.querySelector('.sobremesa .pratos .prato.selecionado');
+                    if (primeiroSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+                        botaoPedido.disabled = false;
+                        botaoPedido.classList.add('botaoverde');
+                        botaoPedido.innerHTML = "Fechar pedido";
+                    } else {
+                        botaoPedido.disabled = true;
+                        botaoPedido.classList.remove('botaoverde');
+                        botaoPedido.style.backgroundColor = '';
+                    }
+                });
+            });
+            
+            console.log(botaoPedido.disabled);
+        }
+        adicionaSelecao('.primeiro .pratos .prato');
+        adicionaSelecao('.bebida .pratos .prato');
+        adicionaSelecao('.sobremesa .pratos .prato');
+        
+    </script> -->
 </body>
 </html>
